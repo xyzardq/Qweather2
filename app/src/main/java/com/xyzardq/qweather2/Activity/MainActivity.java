@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.xyzardq.qweather2.HttpThread.HttpThreadDaily;
+import com.xyzardq.qweather2.HttpThread.HttpThreadSuggestion;
 import com.xyzardq.qweather2.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,7 +20,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textView = (TextView) findViewById(R.id.test);
-        new HttpThreadDaily("nanning",textView,handler).start();
+//        new HttpThreadDaily("nanning",textView,handler).start();
+        new HttpThreadSuggestion("nanning",textView,handler).start();
 
 
 

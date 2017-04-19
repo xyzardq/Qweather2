@@ -4,10 +4,6 @@ import android.os.Handler;
 import android.widget.TextView;
 
 
-import com.xyzardq.qweather2.JsonAnalysis.JsonAnalysisDaily.JsonAnalysisDailyD1;
-import com.xyzardq.qweather2.JsonAnalysis.JsonAnalysisDaily.JsonAnalysisDailyD2;
-import com.xyzardq.qweather2.JsonAnalysis.JsonAnalysisDaily.JsonAnalysisDailyD3;
-import com.xyzardq.qweather2.JsonAnalysis.JsonAnalysisLocation;
 import com.xyzardq.qweather2.JsonAnalysis.JsonAnalysisSuggestion;
 
 import org.json.JSONException;
@@ -22,7 +18,7 @@ import java.net.URL;
 /**
  * Created by Administrator on 2016/7/19.
  */
-public class HttpThreadDaily extends Thread {
+public class HttpThreadSuggestion extends Thread {
 
     private String httpUrl;
     private String httpArg;
@@ -32,7 +28,7 @@ public class HttpThreadDaily extends Thread {
     public String result;
 
 
-    public HttpThreadDaily(String httpArg, TextView textView, Handler handler){
+    public HttpThreadSuggestion(String httpArg, TextView textView, Handler handler){
         this.httpArg = httpArg;
         this.textView = textView;
         this.handler = handler;
@@ -41,7 +37,7 @@ public class HttpThreadDaily extends Thread {
     @Override
     public void run() {
         try {
-            httpUrl = "http://api.seniverse.com/v3/weather/daily.json?key=w2ybdishymhay0y0&location=" + httpArg + "&language=zh-Hans&unit=c&start=0&days=5";
+            httpUrl = "https://api.seniverse.com/v3/life/suggestion.json?key=w2ybdishymhay0y0&location=" + httpArg + "&language=zh-Hans";
             URL url = new URL(httpUrl);
             try {
                 HttpURLConnection connect = (HttpURLConnection) url.openConnection();
@@ -55,16 +51,14 @@ public class HttpThreadDaily extends Thread {
                     od.append(str);
                 }
                 result = od.toString();
-                final JsonAnalysisLocation JsonAL = new JsonAnalysisLocation(od.toString());
-                final JsonAnalysisDailyD1 JsonAD1 = new JsonAnalysisDailyD1(od.toString());
-                final JsonAnalysisDailyD2 JsonAD2 = new JsonAnalysisDailyD2(od.toString());
-                final JsonAnalysisDailyD3 JsonAD3 = new JsonAnalysisDailyD3(od.toString());
+
+                final JsonAnalysisSuggestion JsonAS= new JsonAnalysisSuggestion(od.toString());
 
 
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        textView.setText(JsonAD3.date);
+                        textView.setText(JsonAS.car_washing_brief + JsonAS.dressing_brief + JsonAS.flu_brief + JsonAS.sport_brief + JsonAS.travel_brief + JsonAS.uv_brief);
 
                     }
 
