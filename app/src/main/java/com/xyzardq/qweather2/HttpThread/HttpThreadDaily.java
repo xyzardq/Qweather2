@@ -28,13 +28,19 @@ public class HttpThreadDaily extends Thread {
     private String httpArg;
     private Handler handler;
 
-    private TextView textView;
+    private TextView weatherCityDay;
+    private TextView weatherCityNight;
+    private TextView weatherCityTmp;
+    private TextView weatherCityWind;
     public String result;
 
 
-    public HttpThreadDaily(String httpArg, TextView textView, Handler handler){
+    public HttpThreadDaily(String httpArg, TextView weatherCityDay, Handler handler){
         this.httpArg = httpArg;
-        this.textView = textView;
+        this.weatherCityDay = weatherCityDay;
+        this.weatherCityNight = weatherCityNight;
+        this.weatherCityTmp = weatherCityTmp;
+        this.weatherCityWind = weatherCityWind;
         this.handler = handler;
     }
 
@@ -55,18 +61,20 @@ public class HttpThreadDaily extends Thread {
                     od.append(str);
                 }
                 result = od.toString();
-                final JsonAnalysisLocation JsonAL = new JsonAnalysisLocation(od.toString());
                 final JsonAnalysisDailyD1 JsonAD1 = new JsonAnalysisDailyD1(od.toString());
-                final JsonAnalysisDailyD2 JsonAD2 = new JsonAnalysisDailyD2(od.toString());
-                final JsonAnalysisDailyD3 JsonAD3 = new JsonAnalysisDailyD3(od.toString());
 
 
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        textView.setText(JsonAD3.date);
+                        weatherCityDay.setText("123123");
+
+//                        weatherCityDay.setText("白天" + JsonAD1.text_day);
+//                        weatherCityNight.setText("夜间" + JsonAD1.text_night);
+//                        weatherCityWind.setText(JsonAD1.wind_direction + JsonAD1.wind_direction_degree);
 
                     }
+
 
                 });
             } catch (IOException e) {
@@ -78,4 +86,5 @@ public class HttpThreadDaily extends Thread {
             e.printStackTrace();
         }
     }
+
 }

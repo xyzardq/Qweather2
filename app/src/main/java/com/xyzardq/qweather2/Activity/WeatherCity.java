@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.xyzardq.qweather2.HttpThread.HttpThreadDaily;
 import com.xyzardq.qweather2.R;
+
 
 public class WeatherCity extends AppCompatActivity {
 
@@ -16,6 +18,11 @@ public class WeatherCity extends AppCompatActivity {
     public final static String EXTRA_MESSAGE = null;
 
     TextView weatherCityName;
+
+    TextView weatherCityDay;
+    TextView weatherCityNight;
+    TextView weatherCityTmp;
+    TextView weatherCityWind;
 
     public void Detail(View view) {
         Intent intentOld = getIntent();
@@ -28,11 +35,19 @@ public class WeatherCity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather_city);
+
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+
         weatherCityName = (TextView) findViewById(R.id.weatherCityName);
         weatherCityName.setText(message);
 
+        weatherCityDay = (TextView) findViewById(R.id.weatherCityDay);
+        weatherCityNight = (TextView) findViewById(R.id.weatherCityNight);
+        weatherCityTmp = (TextView) findViewById(R.id.weatherCityTmp);
+        weatherCityWind = (TextView) findViewById(R.id.weatherCityWind);
+
+        new HttpThreadDaily(message,weatherCityTmp,handler).start();
 
     }
 }

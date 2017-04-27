@@ -6,8 +6,126 @@
         android:id="@+id/weatherCityName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="阿卡林"
+        android:text="北京"
+        android:textColor="#000"
         android:textSize="30dp"
+        android:height="100dp"
         android:layout_centerHorizontal="true"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="150dp"
+        android:id="@+id/weatherCityWeather"
+        android:layout_below="@+id/weatherCityName">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="100dp"
+            android:layout_height="100dp">
+            <ImageView
+                android:layout_gravity="center"
+                android:src="@drawable/weathercode_99"
+                android:layout_width="60dp"
+                android:layout_height="60dp" />
+            <TextView
+                android:gravity="center"
+                android:id="@+id/weatherCityDay"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:text="白天：多云"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="100dp"
+            android:layout_height="100dp">
+            <ImageView
+                android:layout_gravity="center"
+                android:background="@drawable/weathercode_99"
+                android:layout_width="60dp"
+                android:layout_height="60dp" />
+            <TextView
+                android:gravity="center"
+                android:id="@+id/weatherCityNight"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:text="夜间：小雨"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/weatherCitybasic"
+        android:layout_below="@+id/weatherCityWeather"
+        android:minHeight="150dp">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="100dp"
+            android:layout_height="100dp">
+            <ImageView
+                android:layout_gravity="center"
+                android:src="@drawable/image_temperature"
+                android:layout_width="60dp"
+                android:layout_height="60dp" />
+            <TextView
+                android:gravity="center"
+                android:id="@+id/weatherCityTmp"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:text="0°/100°"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="100dp"
+            android:layout_height="100dp">
+            <ImageView
+                android:layout_gravity="center"
+                android:background="@drawable/image_wind"
+                android:layout_width="60dp"
+                android:layout_height="60dp" />
+            <TextView
+                android:gravity="center"
+                android:id="@+id/weatherCityWind"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:text="东南风2级"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <ImageButton
+        android:layout_gravity="center"
+        android:scaleType="centerInside"
+        android:background="#FFFFFF"
+        android:onClick="Detail"
+        android:src="@drawable/image_detail"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:id="@+id/imageButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
 
 </RelativeLayout>
