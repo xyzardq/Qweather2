@@ -35,7 +35,7 @@ public class HttpThreadDaily extends Thread {
     public String result;
 
 
-    public HttpThreadDaily(String httpArg, TextView weatherCityDay, Handler handler){
+    public HttpThreadDaily(String httpArg, TextView weatherCityDay,TextView weatherCityNight,TextView weatherCityTmp,TextView weatherCityWind, Handler handler){
         this.httpArg = httpArg;
         this.weatherCityDay = weatherCityDay;
         this.weatherCityNight = weatherCityNight;
@@ -67,11 +67,11 @@ public class HttpThreadDaily extends Thread {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        weatherCityDay.setText("123123");
 
-//                        weatherCityDay.setText("白天" + JsonAD1.text_day);
-//                        weatherCityNight.setText("夜间" + JsonAD1.text_night);
-//                        weatherCityWind.setText(JsonAD1.wind_direction + JsonAD1.wind_direction_degree);
+                        weatherCityDay.setText("白天" + JsonAD1.text_day);
+                        weatherCityNight.setText("夜间" + JsonAD1.text_night);
+                        weatherCityTmp.setText(JsonAD1.low + "°/" + JsonAD1.high + "°");
+                        weatherCityWind.setText(JsonAD1.wind_direction + "风" + JsonAD1.wind_scale + "级");
 
                     }
 

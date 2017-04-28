@@ -5,6 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.github.stuxuhai.jpinyin.PinyinException;
+import com.github.stuxuhai.jpinyin.PinyinFormat;
+import com.github.stuxuhai.jpinyin.PinyinHelper;
 import com.xyzardq.qweather2.HttpThread.HttpThreadSuggestion;
 import com.xyzardq.qweather2.R;
 
@@ -15,9 +18,16 @@ public class WeatherDetail extends AppCompatActivity {
 
     public final static String EXTRA_MESSAGE = null;
 
+    String messagereal;
+
     TextView weatherDetailName;
 
-    TextView weatherDetailCW;
+    TextView weatherDetailCar;
+    TextView weatherDetailDressing;
+    TextView weatherDetailFlu;
+    TextView weatherDetailSport;
+    TextView weatherDetailTravel;
+    TextView weatherDetailUv;
 
 
     @Override
@@ -29,9 +39,20 @@ public class WeatherDetail extends AppCompatActivity {
         weatherDetailName = (TextView) findViewById(R.id.weatherDetailName);
         weatherDetailName.setText(message);
 
-        weatherDetailCW = (TextView) findViewById(R.id.weatherDetailCW);
+        weatherDetailCar = (TextView) findViewById(R.id.weatherDetailCar);
+        weatherDetailDressing = (TextView) findViewById(R.id.weatherDetailDressing);
+        weatherDetailFlu = (TextView) findViewById(R.id.weatherDetailFlu);
+        weatherDetailSport = (TextView) findViewById(R.id.weatherDetailSport);
+        weatherDetailTravel = (TextView) findViewById(R.id.weatherDetailTravel);
+        weatherDetailUv = (TextView) findViewById(R.id.weatherDetailUv);
 
-        new HttpThreadSuggestion(message,weatherDetailCW,handler).start();
+        try {
+            messagereal = PinyinHelper.convertToPinyinString(message, "", PinyinFormat.WITHOUT_TONE);
+        } catch (PinyinException e) {
+            e.printStackTrace();
+        }
+
+        new HttpThreadSuggestion(messagereal,weatherDetailCar,weatherDetailDressing,weatherDetailFlu,weatherDetailSport,weatherDetailTravel,weatherDetailUv,handler).start();
 
     }
 }

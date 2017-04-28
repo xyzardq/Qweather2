@@ -6,6 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.github.stuxuhai.jpinyin.ChineseHelper;
+import com.github.stuxuhai.jpinyin.PinyinException;
+import com.github.stuxuhai.jpinyin.PinyinFormat;
+import com.github.stuxuhai.jpinyin.PinyinHelper;
 import com.xyzardq.qweather2.HttpThread.HttpThreadDaily;
 import com.xyzardq.qweather2.R;
 
@@ -24,6 +28,9 @@ public class WeatherCity extends AppCompatActivity {
     TextView weatherCityTmp;
     TextView weatherCityWind;
 
+    String messagereal;
+
+
     public void Detail(View view) {
         Intent intentOld = getIntent();
         String message = intentOld.getStringExtra(MainActivity.EXTRA_MESSAGE);
@@ -31,6 +38,7 @@ public class WeatherCity extends AppCompatActivity {
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +55,13 @@ public class WeatherCity extends AppCompatActivity {
         weatherCityTmp = (TextView) findViewById(R.id.weatherCityTmp);
         weatherCityWind = (TextView) findViewById(R.id.weatherCityWind);
 
-        new HttpThreadDaily(message,weatherCityTmp,handler).start();
+        try {
+            messagereal = PinyinHelper.convertToPinyinString(message, "", PinyinFormat.WITHOUT_TONE);
+        } catch (PinyinException e) {
+            e.printStackTrace();
+        }
+        new HttpThreadDaily(messagereal,weatherCityDay,weatherCityNight,weatherCityTmp,weatherCityWind,handler).start();
 
-    }
+        }
+
 }

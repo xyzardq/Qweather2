@@ -27,10 +27,22 @@ public class HttpThreadSuggestion extends Thread {
     private TextView textView;
     public String result;
 
+    private TextView weatherDetailCar;
+    private TextView weatherDetailDressing;
+    private TextView weatherDetailFlu;
+    private TextView weatherDetailSport;
+    private TextView weatherDetailTravel;
+    private TextView weatherDetailUv;
 
-    public HttpThreadSuggestion(String httpArg, TextView textView, Handler handler){
+
+    public HttpThreadSuggestion(String httpArg, TextView weatherDetailCar, TextView weatherDetailDressing, TextView weatherDetailFlu, TextView weatherDetailSport, TextView weatherDetailTravel, TextView weatherDetailUv, Handler handler){
         this.httpArg = httpArg;
-        this.textView = textView;
+        this.weatherDetailCar = weatherDetailCar;
+        this.weatherDetailDressing = weatherDetailDressing;
+        this.weatherDetailFlu = weatherDetailFlu;
+        this.weatherDetailSport = weatherDetailSport;
+        this.weatherDetailTravel = weatherDetailTravel;
+        this.weatherDetailUv = weatherDetailUv;
         this.handler = handler;
     }
 
@@ -58,7 +70,12 @@ public class HttpThreadSuggestion extends Thread {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        textView.setText(JsonAS.car_washing_brief + JsonAS.dressing_brief + JsonAS.flu_brief + JsonAS.sport_brief + JsonAS.travel_brief + JsonAS.uv_brief);
+                        weatherDetailCar.setText("洗车指数：" + JsonAS.car_washing_brief);
+                        weatherDetailDressing.setText("穿衣指数：" + JsonAS.dressing_brief);
+                        weatherDetailFlu.setText("感冒指数：" + JsonAS.flu_brief);
+                        weatherDetailSport.setText("运动指数：" + JsonAS.sport_brief);
+                        weatherDetailTravel.setText("旅游指数：" + JsonAS.travel_brief);
+                        weatherDetailUv.setText("紫外线指数：" + JsonAS.uv_brief);
 
                     }
 

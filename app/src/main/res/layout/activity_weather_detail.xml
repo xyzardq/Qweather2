@@ -44,7 +44,7 @@
                 android:layout_height="60dp" />
             <TextView
                 android:gravity="center"
-                android:id="@+id/weatherDetailCW"
+                android:id="@+id/weatherDetailCar"
                 android:textColor="#000"
                 android:textSize="15sp"
                 android:text="洗车指数：较适宜"
@@ -67,7 +67,7 @@
                 android:layout_height="60dp" />
             <TextView
                 android:gravity="center"
-                android:id="@+id/weatherCityFS"
+                android:id="@+id/weatherDetailDressing"
                 android:textColor="#000"
                 android:textSize="15sp"
                 android:text="穿衣指数：较舒适"
@@ -99,7 +99,7 @@
                 android:layout_height="60dp" />
             <TextView
                 android:gravity="center"
-                android:id="@+id/weatherCityCY"
+                android:id="@+id/weatherDetailFlu"
                 android:textColor="#000"
                 android:textSize="15sp"
                 android:text="感冒指数：较易发"
@@ -122,7 +122,7 @@
                 android:layout_height="60dp" />
             <TextView
                 android:gravity="center"
-                android:id="@+id/weatherCityYD"
+                android:id="@+id/weatherDetailSport"
                 android:textColor="#000"
                 android:textSize="15sp"
                 android:text="运动指数：较适宜"
@@ -154,7 +154,7 @@
                 android:layout_height="60dp" />
             <TextView
                 android:gravity="center"
-                android:id="@+id/weatherCityXC"
+                android:id="@+id/weatherDetailTravel"
                 android:textColor="#000"
                 android:textSize="15sp"
                 android:text="旅游指数：适宜"
@@ -177,7 +177,7 @@
                 android:layout_height="60dp" />
             <TextView
                 android:gravity="center"
-                android:id="@+id/weatherCityLS"
+                android:id="@+id/weatherDetailUv"
                 android:textColor="#000"
                 android:textSize="15sp"
                 android:text="紫外线指数：弱"

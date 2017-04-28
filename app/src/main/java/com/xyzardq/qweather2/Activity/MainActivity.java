@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.github.stuxuhai.jpinyin.PinyinException;
+import com.github.stuxuhai.jpinyin.PinyinFormat;
+import com.github.stuxuhai.jpinyin.PinyinHelper;
 import com.xyzardq.qweather2.HttpThread.HttpThreadDaily;
 import com.xyzardq.qweather2.HttpThread.HttpThreadSuggestion;
 import com.xyzardq.qweather2.R;
@@ -16,9 +19,8 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText cityName;
 
-    private Handler handler = new Handler();
-
     public final static String EXTRA_MESSAGE = null;
+
 
     public void Search(View view) {
         Intent intent = new Intent(this, WeatherCity.class);
@@ -32,10 +34,5 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        new HttpThreadDaily("nanning",textView,handler).start();
-//        new HttpThreadSuggestion("nanning",textView,handler).start();
-
-
-
     }
 }
