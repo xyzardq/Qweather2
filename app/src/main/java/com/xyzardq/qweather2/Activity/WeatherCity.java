@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.stuxuhai.jpinyin.ChineseHelper;
@@ -27,6 +28,9 @@ public class WeatherCity extends AppCompatActivity {
     TextView weatherCityNight;
     TextView weatherCityTmp;
     TextView weatherCityWind;
+
+    ImageView weatherCityDayCode;
+    ImageView weatherCityNightCode;
 
     String messagereal;
 
@@ -55,12 +59,15 @@ public class WeatherCity extends AppCompatActivity {
         weatherCityTmp = (TextView) findViewById(R.id.weatherCityTmp);
         weatherCityWind = (TextView) findViewById(R.id.weatherCityWind);
 
+        weatherCityDayCode = (ImageView) findViewById(R.id.weatherCityDayCode);
+        weatherCityNightCode = (ImageView) findViewById(R.id.weatherCityNightCode);
+
         try {
             messagereal = PinyinHelper.convertToPinyinString(message, "", PinyinFormat.WITHOUT_TONE);
         } catch (PinyinException e) {
             e.printStackTrace();
         }
-        new HttpThreadDaily(messagereal,weatherCityDay,weatherCityNight,weatherCityTmp,weatherCityWind,handler).start();
+        new HttpThreadDaily(messagereal,weatherCityDay,weatherCityNight,weatherCityTmp,weatherCityWind,weatherCityDayCode,weatherCityNightCode,handler).start();
 
         }
 
