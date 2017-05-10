@@ -6,10 +6,6 @@ import android.widget.TextView;
 
 
 import com.xyzardq.qweather2.JsonAnalysis.JsonAnalysisDaily.JsonAnalysisDailyD1;
-import com.xyzardq.qweather2.JsonAnalysis.JsonAnalysisDaily.JsonAnalysisDailyD2;
-import com.xyzardq.qweather2.JsonAnalysis.JsonAnalysisDaily.JsonAnalysisDailyD3;
-import com.xyzardq.qweather2.JsonAnalysis.JsonAnalysisLocation;
-import com.xyzardq.qweather2.JsonAnalysis.JsonAnalysisSuggestion;
 import com.xyzardq.qweather2.R;
 
 import org.json.JSONException;

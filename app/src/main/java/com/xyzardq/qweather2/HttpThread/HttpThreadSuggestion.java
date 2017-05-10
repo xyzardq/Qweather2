@@ -24,8 +24,6 @@ public class HttpThreadSuggestion extends Thread {
     private String httpArg;
     private Handler handler;
 
-    private TextView textView;
-    public String result;
 
     private TextView weatherDetailCar;
     private TextView weatherDetailDressing;
@@ -33,6 +31,8 @@ public class HttpThreadSuggestion extends Thread {
     private TextView weatherDetailSport;
     private TextView weatherDetailTravel;
     private TextView weatherDetailUv;
+
+    public String result;
 
 
     public HttpThreadSuggestion(String httpArg, TextView weatherDetailCar, TextView weatherDetailDressing, TextView weatherDetailFlu, TextView weatherDetailSport, TextView weatherDetailTravel, TextView weatherDetailUv, Handler handler){

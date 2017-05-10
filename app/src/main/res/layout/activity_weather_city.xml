@@ -49,7 +49,7 @@
             <ImageView
                 android:layout_gravity="center"
                 android:id="@+id/weatherCityNightCode"
-                android:background="@drawable/weathercode_99"
+                android:src="@drawable/weathercode_99"
                 android:layout_width="60dp"
                 android:layout_height="60dp" />
             <TextView
